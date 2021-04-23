@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href = "style.css">
+        <title>Cig Kofte Oyunu</title>
+    </head>
+    <body>
+        <div id="start">
+
+            <form id="operation-name-form">
+                <label style="font-size : 20px;">Lutfen isletmenizin adini giriniz</label>
+                <br>
+                <input id="operation-name-input" type="text" maxlength="32">
+                <input type="submit" id="form-submit">
+            </form>
+        </div>
+
+        <div id="game">
+            <header>
+                <h1 style="text-align : center;"><a href="./profile/profile.html" id="operationName"></a></h1>
+                <button class="reset">Reset Game!</button>
+            </header>
+            <section>
+                <div id="header">
+                    <span>Çiğ Köfte: </span>
+                    <span id="makedCigKofte"></span>
+                    <br/>
+                    <button id="makeCigKofteButton" style="margin-top: 6px;">Çiğ Köfte Yoğur!</button>
+                </div>
+
+                <div id="operationArea">
+                    <br>İşletme</br>
+                    <hr />
+
+                    <table>
+                        <tr>
+                            <td>Kasadaki para:</td>
+                            <td id="money"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Dolaptaki adet:</td>
+                            <td id="currentCigKofte"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Fiyat:</td>
+                            <td><span id="cigKofteFee"></span> <button id="increasePrice">+</button> <button id="decreasePrice">-</button></td>
+                        </tr>
+
+                    </table>
+
+                    <br>Üretim</be>
+                    <hr />
+                    <table>
+                        <tr>
+                            <td>Malzeme:</td>
+                            <td><span id="material"></span> gr <button id="buyMaterial" style="margin-left: 12px;">Satın Al!(<span id="materialCost"></span>)</button></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr id="autoBuyer">
+                            <td>Satın Alma Müdürü:</td>
+                            <td><span id="autoBuyerActivity">Yok</span> <button id="buyAutoBuyer" style="margin-left: 12px;">Satın Al!(<span id="autoBuyerCost"></span>)</button><button id="changeAutoBuyerActivity">Durdur!</button></td>
+
+                        </tr>
+                    </table>
+                    <div id="market">
+                        <br>Market</br>
+                        <hr />
+                    <table id="market">
+                        <!--Nar Eksisi-->
+                        <tr>
+                            <td>Nar Ekşisi (+10 TL)</td>
+                            <td class="nar"><span id="narPrice"></span> <button id="buyNar" style = "margin-left: 12px;">Satın Al!</button> <span style ="margin-left: 12px;" id="hasNar"></span></td>
+                        </tr>
+
+                        <!--Limon-->
+                        <tr>
+                            <td>Limon (+10 TL)</td>
+                            <td class="limon"><span id="limonPrice"></span> <button id="buyLimon" style = "margin-left: 12px;">Satın Al!</button> <span style ="margin-left: 12px;" id="hasLimon"></span></td>
+                        </tr>
+
+                        <!--Tursu-->
+                       <tr>
+                           <td>Turşu (+10 TL)</td>
+                           <td class="tursu"><span id="tursuPrice"></span> <button id="buyTursu" style = "margin-left: 12px;">Satın Al!</button> <span style ="margin-left: 12px;" id="hasTursu"></span></td>
+                        </tr>
+
+                        <!--Yesillik-->
+                       <tr>
+                            <td>Yeşillik (+10 TL)</td>
+                            <td class="yesillik"><span id="yesillikPrice"></span> <button id="buyYesillik" style = "margin-left: 12px;">Satın Al!</button> <span style ="margin-left: 12px;" id="hasYesillik"></span></td>
+                        </tr>
+
+                        <!--Marul-->
+                       <tr>
+                            <td>Marul (+10 TL)</td>
+                            <td class="marul"><span id="marulPrice"></span> <button id="buyMarul" style = "margin-left: 12px;">Satın Al!</button> <span style ="margin-left: 12px;" id="hasMarul"></span></td>
+                        </tr>
+
+
+                    </table>
+                    </div>
+
+                    <div id="calisan">
+                        <br>Çalışan</br>
+                        <hr />
+                        <table>
+                            <tr>
+                                <td>Çırak (<span id="errandBoysAmount"></span>):</td>
+                                <td><span id="errandBoysPrice"></span> <button id="buyErrandBoy" style="margin-left: 12px;">Satın Al!</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>Usta (<span id="mastersAmount"></span>):</td>
+                                <td><span id="mastersPrice"></span> <button id="buyMaster" style="margin-left: 12px;">Satın Al!</button></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </section>
+            <script src = "App.js"></script>
+        </div>
+    </body>
+</html>
