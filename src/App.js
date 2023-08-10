@@ -282,6 +282,7 @@ class Game {
 
     this.level++;
     localStorage.setItem('money', this.money);
+    localStorage.setItem('maxPrice', this.maxPrice);
     location.reload();
     localStorage.setItem('level', this.level);
   }
@@ -503,6 +504,10 @@ if(localStorage.getItem('level')) {
 
 if(localStorage.getItem('sellIndex')) {
   game.sellIndex = localStorage.getItem('sellIndex');
+}
+
+if(localStorage.getItem('maxPrice')) {
+  game.maxPrice = localStorage.getItem('maxPrice');
 }
 
 if(game.level > 1) {
