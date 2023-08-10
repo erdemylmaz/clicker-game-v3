@@ -918,6 +918,7 @@ function updateRanking() {
 
       users.map((u) => {
         if(u.title == operationName) {
+          u.totalMakedCigKofte = game.makedCigKofte;
           user = u;
         }
       });
@@ -937,7 +938,7 @@ function updateRanking() {
         div.innerHTML = `
         <div class="item-rank">${index + 1}</div>
         <div class="item-name">${user.title} <span class="item-start-date">(${user.createDate[0]}.${user.createDate[1]}.${user.createDate[2]} ${user.createDate[3]}:${user.createDate[4]})</span></div>
-        <div class="item-money">${addDots(user.money)}₺</div>`
+        <div class="item-money">${addDots(user.money)}₺ (${user.totalMakedCigKofte} Cig Kofte)</div>`
 
         rankingListArea.appendChild(div);
       });
