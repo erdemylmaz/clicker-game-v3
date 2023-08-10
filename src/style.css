@@ -278,6 +278,12 @@ button:focus {
   border-radius: 8px;
   margin-bottom: 16px;
   cursor: pointer;
+  transition: 250ms;
+}
+
+.upgrade-btn:hover {
+  background-color: #fff;
+  color: var(--blue);
 }
 
 .disabled {
