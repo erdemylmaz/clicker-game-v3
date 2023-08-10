@@ -524,7 +524,7 @@ function check() {
   game.canBuyMaterial();
   game.canBuyAutoBuyer();
 
-  if (Math.random() * game.cigKofteFee < 5 && game.currentCigKofte > 0) {
+  if (Math.random() * game.cigKofteFee <= 5 && game.currentCigKofte > 0) {
     game.sellCigKofte();
   }
 
@@ -937,7 +937,7 @@ function updateRanking() {
 
         div.innerHTML = `
         <div class="item-rank">${index + 1}</div>
-        <div class="item-name">${user.title} <span class="item-start-date">(${user.createDate[0]}.${user.createDate[1]}.${user.createDate[2]} ${user.createDate[3]}:${user.createDate[4]})</span></div>
+        <div class="item-name">${user.title} <span class="item-start-date">(${user.createDate[0]}.${user.createDate[1] + 1}.${user.createDate[2]} ${user.createDate[3]}:${user.createDate[4]})</span></div>
         <div class="item-money">${addDots(user.money)}₺ ${user.totalMakedCigKofte ? "/ " + addDots(user.totalMakedCigKofte) + " Cig Kofte" : ""}</div>`
 
         rankingListArea.appendChild(div);
