@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel = "stylesheet" href = "style.css">
         <title>Cig Kofte Oyunu</title>
+        <!-- Style -->
+        <link rel = "stylesheet" href = "./style.css">
+        <!-- Icon -->
+        <script src="https://kit.fontawesome.com/fa178081cb.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="start">
 
             <form id="operation-name-form">
-                <label style="font-size : 20px;">Lutfen isletmenizin adini giriniz</label>
+                <label>Lutfen isletmenizin adini giriniz</label>
                 <br>
                 <input id="operation-name-input" type="text" maxlength="32">
                 <input type="submit" id="form-submit">
             </form>
+        </div>
+
+        <div class="confirm">
+            <div class="confirm-container">
+                <div class="confirm-header"><i class="fas fa-times close-confirm-btn"></i></div>
+                <div class="confirm-title">Are you sure about reset the game?</div>
+                <div class="confirm-buttons">
+                    <div class="refuse-btn c-btn">No!</div>
+                    <div class="confirm-btn c-btn">Yes!</div>
+                </div>
+            </div>
         </div>
 
         <div id="game">
@@ -121,7 +135,14 @@
 
                 </div>
             </section>
-            <script src = "App.js"></script>
         </div>
+
+        <div class="line"></div>
+
+        <div class="ranking-list">
+          <div class="ranking-title">RANKING</div>
+        </div>
+
+    <script src="./App.js" type="module"></script>
     </body>
 </html>
