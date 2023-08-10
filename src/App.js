@@ -890,6 +890,21 @@ if (localStorage.getItem("totalEarnedMoney")) {
 
 const rankingListArea = document.querySelector('.ranking-list');
 
+function addDots(number) {
+  let array = JSON.stringify(number).split('').reverse();
+  let newNumber = '';
+
+  for(let x = array.length - 1; x > -1; x--) {
+    newNumber += array[x];
+
+    if(x % 3 == 0 && x != 0) {
+      newNumber += '.';
+    }
+  }
+  
+  return newNumber;
+}
+
 function updateRanking() {
   let users = [];
 
@@ -898,15 +913,16 @@ function updateRanking() {
 
     if(localStorage.getItem('operationName')) {
       let user = null;
-  
+
       operationName = localStorage.getItem('operationName');
-  
+
       users.map((u) => {
         if(u.title == operationName) {
+          u.totalMakedCigKofte = game.makedCigKofte;
           user = u;
         }
       });
-  
+
       user.money = game.totalEarnedMoney;
     }
 
@@ -922,7 +938,7 @@ function updateRanking() {
         div.innerHTML = `
         <div class="item-rank">${index + 1}</div>
         <div class="item-name">${user.title} <span class="item-start-date">(${user.createDate[0]}.${user.createDate[1]}.${user.createDate[2]} ${user.createDate[3]}:${user.createDate[4]})</span></div>
-        <div class="item-money">${user.money}₺</div>`
+        <div class="item-money">${addDots(user.money)}₺ (${user.totalMakedCigKofte || "x"} Cig Kofte)</div>`
 
         rankingListArea.appendChild(div);
       });
