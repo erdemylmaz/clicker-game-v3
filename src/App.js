@@ -273,7 +273,7 @@ class Game {
   upgradeCoop = () => {
     this.money -= this.upgradePrice;
 
-    this.upgradePrice = this.upgradePrice * 1.25;
+    this.upgradePrice = this.upgradePrice * 2;
     this.cigKofteFee += 10;
     this.maxPrice += 10;
     this.sellIndex += 1;
@@ -511,7 +511,7 @@ if(localStorage.getItem('maxPrice')) {
 }
 
 if(game.level > 1) {
-  game.upgradePrice = game.upgradePrice * Math.pow(1.25, game.level - 1);
+  game.upgradePrice = game.upgradePrice * Math.pow(2, game.level - 1);
   game.cigKofteFee += 10 * (game.level - 1);
   game.maxPrice += 10 * (game.level - 1);
 }
