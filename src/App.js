@@ -330,7 +330,7 @@ class Ingredients {
   };
 
   // Marul
-  marulsPrice = 150000;
+  marulsPrice = 250000;
   hasMarul = false;
 
   buyMarul = () => {
@@ -350,7 +350,7 @@ class Ingredients {
   };
 
   // Tursu
-  tursusPrice = 200000;
+  tursusPrice = 150000;
   hasTursu = false;
 
   buyTursu = () => {
@@ -369,7 +369,7 @@ class Ingredients {
     localStorage.setItem("items", JSON.stringify(game.items));
   };
   // Yesillik
-  yesilliksPrice = 250000;
+  yesilliksPrice = 200000;
   hasYesillik = false;
 
   buyYesillik = () => {
@@ -1000,7 +1000,7 @@ function updateRanking() {
         div.innerHTML = `
         <div class="item-rank">${index + 1}</div>
         <div class="item-name">${user.title} (${user.level} Level) <span class="item-start-date">(${user.createDate[0]}.${user.createDate[1] + 1}.${user.createDate[2]} ${user.createDate[3]}:${user.createDate[4]})</span></div>
-        <div class="item-money">${addDots(user.money)}₺ ${user.totalMakedCigKofte ? "/ " + addDots(user.totalMakedCigKofte) + " Cig Kofte" : ""} ${user.currentMoney ? " / " + addDots(user.currentMoney) + "₺" : ""}</div>`
+        <div class="item-money">${addDots(user.money)}₺ ${user.totalMakedCigKofte ? "| " + addDots(user.totalMakedCigKofte) + " Cig Kofte" : ""} ${user.currentMoney ? " | " + addDots(user.currentMoney) + "₺" : ""}</div>`
 
         rankingListArea.appendChild(div);
       });
