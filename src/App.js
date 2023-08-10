@@ -276,7 +276,7 @@ class Game {
     this.upgradePrice = this.upgradePrice * 1.25;
     this.cigKofteFee += 10;
     this.maxPrice += 10;
-    this.sellIndex += 0.7;
+    this.sellIndex += 1;
 
     localStorage.setItem('sellIndex', this.sellIndex);
 
