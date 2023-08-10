@@ -271,3 +271,16 @@ button:focus {
 .item-money {
   font-weight: 700;
 }
+
+.upgrade-btn {
+  padding: 4px 8px;
+  background-color: var(--blue);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.disabled {
+  filter: brightness(0.6);
+  cursor: not-allowed;
+}

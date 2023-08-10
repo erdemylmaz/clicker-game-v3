@@ -81,6 +81,9 @@ form.addEventListener("submit", onSubmit);
 
 document.title = localStorage.getItem("operationName");
 // GAME
+const upgradeBTN = document.querySelector('.upgrade-btn');
+const upgradePriceAREA = document.querySelector('.upgrade-price');
+
 const materialArea = document.getElementById("material");
 const moneyArea = document.getElementById("money");
 const currentCigKofteArea = document.getElementById("currentCigKofte");
@@ -148,6 +151,9 @@ class Game {
   isAutoBuyerActive = false;
   autoBuyerCost = 15000;
   autoBuyerShow = 2000;
+  upgradePrice = 500000;
+  level = 1;
+  sellIndex = 5;
 
   newMaterialCost;
 
@@ -263,6 +269,22 @@ class Game {
 
     localStorage.setItem("cigKofteFee", this.cigKofteFee);
   };
+
+  upgradeCoop = () => {
+    this.money -= this.upgradePrice;
+
+    this.upgradePrice = this.upgradePrice * 1.25;
+    this.cigKofteFee += 10;
+    this.maxPrice += 10;
+    this.sellIndex += 0.7;
+
+    localStorage.setItem('sellIndex', this.sellIndex);
+
+    this.level++;
+    localStorage.setItem('money', this.money);
+    location.reload();
+    localStorage.setItem('level', this.level);
+  }
 }
 class Ingredients {
   totalIngredients = 0;
@@ -475,6 +497,22 @@ let helpers = new yardimcilar();
 let ingredients = new Ingredients();
 let game = new Game();
 
+if(localStorage.getItem('level')) {
+  game.level = localStorage.getItem('level');
+}
+
+if(localStorage.getItem('sellIndex')) {
+  game.sellIndex = localStorage.getItem('sellIndex');
+}
+
+if(game.level > 1) {
+  game.upgradePrice = game.upgradePrice * Math.pow(1.25, game.level - 1);
+  game.cigKofteFee += 10 * (game.level - 1);
+  game.maxPrice += 10 * (game.level - 1);
+}
+
+upgradePriceAREA.textContent = `${addDots(game.upgradePrice)}`;
+
 makeButton.addEventListener("click", game.makeCigKofte);
 buyMaterialButton.addEventListener("click", game.buyMaterial);
 buyAutoBuyerButton.addEventListener("click", game.buyAutoBuyer);
@@ -524,7 +562,11 @@ function check() {
   game.canBuyMaterial();
   game.canBuyAutoBuyer();
 
-  if (Math.random() * game.cigKofteFee <= 5 && game.currentCigKofte > 0) {
+  if(game.money >= game.upgradePrice) {
+    upgradeBTN.classList.remove('disabled');
+  }
+
+  if (Math.random() * game.cigKofteFee < game.sellIndex && game.currentCigKofte > 0) {
     game.sellCigKofte();
   }
 
@@ -791,6 +833,9 @@ function resetGame() {
   game.autoBuyerShow = 2000;
   game.maxPrice = 20;
   game.minPrice = 1;
+  game.sellIndex = 5;
+  game.upgradePrice = 500000;
+  game.level = 1;
 
   // reset ingredients class
   ingredients.hasMarul = false;
@@ -810,6 +855,8 @@ function resetGame() {
 
   localStorage.setItem("isCompanyWork", 0);
   localStorage.setItem("totalEarnedMoney", 0);
+  localStorage.setItem('sellIndex', 5);
+  localStorage.setItem('level', 1);
 
   // game
   materialArea.innerHTML = `${game.material}`;
@@ -853,6 +900,8 @@ function resetGame() {
 
   gameArea.style.display = "none";
   startArea.style.display = "block";
+
+  location.reload();
 };
 
 resetButton.addEventListener("click", () => {
@@ -867,6 +916,8 @@ refuseConfirmBtn.addEventListener("click", () => {
 });
 
 confirmBtn.addEventListener("click", resetGame);
+
+upgradeBTN.addEventListener('click', game.upgradeCoop);
 
 confirmDOM.addEventListener("click", (e) => {
   if (e.target.classList.contains("confirm")) {
@@ -919,6 +970,7 @@ function updateRanking() {
       users.map((u) => {
         if(u.title == operationName) {
           u.totalMakedCigKofte = game.makedCigKofte;
+          u.level = game.level;
           user = u;
         }
       });
@@ -937,7 +989,7 @@ function updateRanking() {
 
         div.innerHTML = `
         <div class="item-rank">${index + 1}</div>
-        <div class="item-name">${user.title} <span class="item-start-date">(${user.createDate[0]}.${user.createDate[1] + 1}.${user.createDate[2]} ${user.createDate[3]}:${user.createDate[4]})</span></div>
+        <div class="item-name">${user.title} (${user.level} Level) <span class="item-start-date">(${user.createDate[0]}.${user.createDate[1] + 1}.${user.createDate[2]} ${user.createDate[3]}:${user.createDate[4]})</span></div>
         <div class="item-money">${addDots(user.money)}₺ ${user.totalMakedCigKofte ? "/ " + addDots(user.totalMakedCigKofte) + " Cig Kofte" : ""}</div>`
 
         rankingListArea.appendChild(div);
