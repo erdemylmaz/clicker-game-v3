@@ -896,17 +896,19 @@ function updateRanking() {
   get(ref(db, "APP/USERS")).then((snapshot) => {
     users = snapshot.val();
 
-    let user = null;
+    if(localStorage.getItem('operationName')) {
+      let user = null;
 
-    operationName = localStorage.getItem('operationName');
+      operationName = localStorage.getItem('operationName');
 
-    users.map((u) => {
-      if(u.title == operationName) {
-        user = u;
-      }
-    });
+      users.map((u) => {
+        if(u.title == operationName) {
+          user = u;
+        }
+      });
 
-    user.money = game.totalEarnedMoney;
+      user.money = game.totalEarnedMoney;
+    }
 
     set(ref(db, "APP/USERS"), users).then(() => {
       // update ranking
