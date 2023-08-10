@@ -289,7 +289,7 @@ class Game {
 class Ingredients {
   totalIngredients = 0;
   // Nar Eksisi
-  narsPrice = 50000;
+  narsPrice = 100000;
   hasNar = false;
 
   buyNar = () => {
@@ -309,7 +309,7 @@ class Ingredients {
   };
 
   // Limon
-  lemonsPrice = 75000;
+  lemonsPrice = 250000;
   hasLemon = false;
 
   buyLemon = () => {
@@ -329,7 +329,7 @@ class Ingredients {
   };
 
   // Marul
-  marulsPrice = 150000;
+  marulsPrice = 300000;
   hasMarul = false;
 
   buyMarul = () => {
@@ -349,7 +349,7 @@ class Ingredients {
   };
 
   // Tursu
-  tursusPrice = 100000;
+  tursusPrice = 350000;
   hasTursu = false;
 
   buyTursu = () => {
@@ -368,7 +368,7 @@ class Ingredients {
     localStorage.setItem("items", JSON.stringify(game.items));
   };
   // Yesillik
-  yesilliksPrice = 125000;
+  yesilliksPrice = 400000;
   hasYesillik = false;
 
   buyYesillik = () => {
