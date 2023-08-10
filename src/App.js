@@ -187,7 +187,7 @@ class Game {
     this.currentCigKofte--;
 
     currentCigKofteArea.innerHTML = `${game.currentCigKofte}`;
-    moneyArea.innerHTML = `${game.money}₺`;
+    moneyArea.innerHTML = `${addDots(game.money)}₺`;
 
     // set datas to local storage
     localStorage.setItem("currentCigKofte", this.currentCigKofte);
