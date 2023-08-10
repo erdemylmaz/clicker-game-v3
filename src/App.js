@@ -917,7 +917,11 @@ refuseConfirmBtn.addEventListener("click", () => {
 
 confirmBtn.addEventListener("click", resetGame);
 
-upgradeBTN.addEventListener('click', game.upgradeCoop);
+upgradeBTN.addEventListener('click', (e) => {
+  if(!e.currentTarget.classList.contains('disabled')) {
+    game.upgradeCoop();
+  }
+});
 
 confirmDOM.addEventListener("click", (e) => {
   if (e.target.classList.contains("confirm")) {
