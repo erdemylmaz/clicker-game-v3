@@ -112,17 +112,17 @@ button:focus {
 
 .reset {
   width: 15%;
-  height: 32px;
-  color: red;
+  padding: 4px 8px;
+  color: var(--blue);
   border: 1px solid black;
   border-radius: 5px;
   background-color: black;
 }
 
 .reset:hover {
-  background-color: #222222;
-  border: 1px solid red;
-  color: red;
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
+  color: #000;
   transition: 125ms;
   cursor: pointer;
 }
