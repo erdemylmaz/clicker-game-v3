@@ -151,7 +151,7 @@ class Game {
   isAutoBuyerActive = false;
   autoBuyerCost = 15000;
   autoBuyerShow = 2000;
-  upgradePrice = 500000;
+  upgradePrice = 120000;
   level = 1;
   sellIndex = 5;
 
@@ -289,7 +289,7 @@ class Game {
 class Ingredients {
   totalIngredients = 0;
   // Nar Eksisi
-  narsPrice = 100000;
+  narsPrice = 50000;
   hasNar = false;
 
   buyNar = () => {
@@ -309,7 +309,7 @@ class Ingredients {
   };
 
   // Limon
-  lemonsPrice = 250000;
+  lemonsPrice = 100000;
   hasLemon = false;
 
   buyLemon = () => {
@@ -329,7 +329,7 @@ class Ingredients {
   };
 
   // Marul
-  marulsPrice = 300000;
+  marulsPrice = 150000;
   hasMarul = false;
 
   buyMarul = () => {
@@ -349,7 +349,7 @@ class Ingredients {
   };
 
   // Tursu
-  tursusPrice = 350000;
+  tursusPrice = 200000;
   hasTursu = false;
 
   buyTursu = () => {
@@ -368,7 +368,7 @@ class Ingredients {
     localStorage.setItem("items", JSON.stringify(game.items));
   };
   // Yesillik
-  yesilliksPrice = 400000;
+  yesilliksPrice = 250000;
   hasYesillik = false;
 
   buyYesillik = () => {
