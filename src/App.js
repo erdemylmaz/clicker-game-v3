@@ -500,6 +500,7 @@ let game = new Game();
 
 if(localStorage.getItem('level')) {
   game.level = localStorage.getItem('level');
+  game.cigKofteMaterialAmount -= (game.level - 1) * 10;
 }
 
 if(localStorage.getItem('sellIndex')) {
