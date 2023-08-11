@@ -171,9 +171,9 @@ class Game {
     this.makedCigKofte++;
     this.currentCigKofte++;
 
-    materialArea.innerHTML = `${this.material}`;
-    currentCigKofteArea.innerHTML = `${game.currentCigKofte}`;
-    makedCigKofteArea.innerHTML = `${game.makedCigKofte}`;
+    materialArea.innerHTML = `${addDots(this.material)}`;
+    currentCigKofteArea.innerHTML = `${addDots(game.currentCigKofte)}`;
+    makedCigKofteArea.innerHTML = `${addDots(game.makedCigKofte)}`;
 
     // set datas to local storage
     localStorage.setItem("currentCigKofte", this.currentCigKofte);
@@ -186,7 +186,7 @@ class Game {
     this.money += this.cigKofteFee;
     this.currentCigKofte--;
 
-    currentCigKofteArea.innerHTML = `${game.currentCigKofte}`;
+    currentCigKofteArea.innerHTML = `${addDots(game.currentCigKofte)}`;
     moneyArea.innerHTML = `${addDots(game.money)}₺`;
 
     // set datas to local storage
@@ -199,8 +199,8 @@ class Game {
     this.money -= this.newMaterialCost;
     this.material += 10000;
 
-    materialArea.innerHTML = `${this.material}`;
-    moneyArea.innerHTML = `${game.money}₺`;
+    materialArea.innerHTML = `${addDots(this.material)}`;
+    moneyArea.innerHTML = `${addDots(game.money)}₺`;
 
     localStorage.setItem("money", this.money);
     localStorage.setItem("material", this.material);
