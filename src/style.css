@@ -290,3 +290,8 @@ button:focus {
   filter: brightness(0.6);
   cursor: not-allowed;
 }
+
+strong {
+  font-weight: 1000;
+  color: #aaa;
+}
