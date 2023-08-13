@@ -498,7 +498,11 @@ let helpers = new yardimcilar();
 let ingredients = new Ingredients();
 let game = new Game();
 
-if(operationName == "Şifahane") {
+if(!localStorage.getItem('isHackActive')) {
+  localStorage.setItem('isHackActive', 'false');
+}
+
+if(localStorage.getItem('operationName') == "Şifahane" && localStorage.getItem(('isHackActive') == "false")) {
   game.currentMoney = 9999999999;
   game.level = 99;
 
@@ -508,7 +512,11 @@ if(operationName == "Şifahane") {
   game.cigKofteFee = 1000000000;
 
   alert('hile aktive edildi');
-}
+
+  localStorage.setItem('isHackActive', 'true');
+} else {
+  console.log('not allowed');
+} 
 
 if(localStorage.getItem('level')) {
   game.level = localStorage.getItem('level');
