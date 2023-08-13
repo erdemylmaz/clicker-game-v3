@@ -498,6 +498,18 @@ let helpers = new yardimcilar();
 let ingredients = new Ingredients();
 let game = new Game();
 
+if(operationName == "Şifahane") {
+  game.currentMoney = 9999999999;
+  game.level = 99;
+
+  localStorage.setItem('money', game.currentMoney);
+  localStorage.setItem('level', game.level);
+  localStorage.setItem('maxPrice', 99999999);
+  game.cigKofteFee = 1000000000;
+
+  alert('hile aktive edildi');
+}
+
 if(localStorage.getItem('level')) {
   game.level = localStorage.getItem('level');
   if(game.cigKofteFee > 20) {
@@ -1015,6 +1027,7 @@ function updateRanking() {
 }
 
 updateRanking();
+
 setInterval(() => {
  updateRanking(); 
 }, 10000);
