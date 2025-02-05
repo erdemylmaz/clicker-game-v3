@@ -143,7 +143,7 @@ class Game {
   cigKofteMaterialAmount = 100;
   makedCigKofte = 0;
   currentCigKofte = 0;
-  materialCost = 1000;
+  materialCost = 400;
   hasAutoBuyer = false;
   isAutoBuyerActive = false;
   autoBuyerCost = 15000;
